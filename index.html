@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Dr. Mahfoud Amara — Academic Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --maroon: #6B0F1A;
+    --maroon-dark: #4A0A12;
+    --maroon-light: #8B1A2A;
+    --maroon-pale: #F5E8EA;
+    --maroon-muted: #D4919A;
+    --gold: #C49A3C;
+    --gold-light: #E8C97D;
+    --white: #FDFAF8;
+    --off-white: #F4EFE9;
+    --text: #1A1208;
+    --text-muted: #6B5E52;
+    --text-light: #9C8A7A;
+    --border: #E2D8D0;
+    --shadow: 0 2px 20px rgba(107,15,26,0.08);
+    --shadow-hover: 0 8px 40px rgba(107,15,26,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--maroon-dark);
+    border-bottom: 2px solid var(--gold);
+    padding: 0 24px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold-light);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .hamburger span {
+    width: 22px;
+    height: 2px;
+    background: var(--gold-light);
+    display: block;
+    transition: all 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: var(--maroon-dark);
+    z-index: 99;
+    padding: 20px 24px;
+    border-bottom: 2px solid var(--gold);
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    margin-top: 60px;
+    background: var(--maroon-dark);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 24px 70px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,154,60,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139,26,42,0.4) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    background: var(--maroon-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--gold-light);
+    flex-shrink: 0;
+    box-shadow: 0 0 0 6px rgba(196,154,60,0.15);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: box-shadow 0.25s;
+  }
+
+  .hero-avatar:hover {
+    box-shadow: 0 0 0 6px rgba(196,154,60,0.3);
+  }
+
+  .hero-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .avatar-upload-input { display: none; }
+
+  /* Camera overlay shown on hover when photo is present */
+  .avatar-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(74,10,18,0.55);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    opacity: 0;
+    transition: opacity 0.25s;
+    pointer-events: none;
+  }
+
+  .hero-avatar:hover .avatar-overlay { opacity: 1; }
+
+  .avatar-overlay-icon { font-size: 1.4rem; }
+  .avatar-overlay-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .hero-text {}
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .hero-tag {
+    background: rgba(196,154,60,0.15);
+    border: 1px solid rgba(196,154,60,0.35);
+    color: var(--gold-light);
+    padding: 4px 12px;
+    border-radius: 2px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ===== MAIN CONTENT ===== */
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-child { border-bottom: none; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--maroon);
+    font-weight: 700;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--maroon-muted), transparent);
+  }
+
+  /* ===== SEARCH & FILTERS ===== */
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .search-wrap {
+    position: relative;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    font-size: 0.9rem;
+    pointer-events: none;
+  }
+
+  #search {
+    width: 100%;
+    padding: 12px 16px 12px 40px;
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 1rem;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  #search:focus {
+    border-color: var(--maroon);
+    box-shadow: 0 0 0 3px rgba(107,15,26,0.08);
+  }
+
+  .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .filter-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+    margin-right: 4px;
+  }
+
+  .filter-btn {
+    padding: 6px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 2px;
+    background: transparent;
+    cursor: pointer;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    transition: all 0.2s;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--maroon);
+    color: var(--maroon);
+  }
+
+  .filter-btn.active {
+    background: var(--maroon);
+    border-color: var(--maroon);
+    color: white;
+  }
+
+  /* Keyword tooltip on hover */
+  .filter-btn[data-keywords]:not([data-theme="all"])::after {
+    content: attr(data-keywords);
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--text);
+    color: white;
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+    padding: 6px 10px;
+    border-radius: 3px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 10;
+    max-width: 260px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  .filter-btn[data-keywords]:not([data-theme="all"]):hover::after {
+    opacity: 1;
+  }
+
+  /* Arrow for tooltip */
+  .filter-btn[data-keywords]:not([data-theme="all"])::before {
+    content: '';
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-bottom-color: var(--text);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 11;
+  }
+
+  .filter-btn[data-keywords]:not([data-theme="all"]):hover::before {
+    opacity: 1;
+  }
+
+  select {
+    padding: 6px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 2px;
+    background: var(--white);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 28px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239C8A7A' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    transition: border-color 0.2s;
+  }
+
+  select:focus { border-color: var(--maroon); }
+
+  /* ===== RESULTS COUNT ===== */
+  .results-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+  }
+
+  /* ===== ARTICLE CARDS ===== */
+  .articles-grid {
+    display: grid;
+    gap: 20px;
+  }
+
+  .article-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-start: start;
+    transition: box-shadow 0.25s, border-color 0.25s, transform 0.2s;
+    animation: fadeUp 0.4s ease both;
+  }
+
+  .article-card:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: var(--maroon-muted);
+    transform: translateY(-2px);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-left { min-width: 0; }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .card-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+
+  .card-theme {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    color: white;
+  }
+
+  .theme-sport { background: #5C1028; }
+  .theme-football { background: #8B3A1A; }
+  .theme-qatar { background: #1A5C3A; }
+  .theme-colonial { background: #1A3A5C; }
+  .theme-other { background: #4A4A4A; }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+  }
+
+  .article-card:hover .card-title { color: var(--maroon); }
+
+  .card-snippet {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-right {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 4px;
+  }
+
+  .read-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--maroon);
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 3px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .read-btn:hover {
+    background: var(--maroon-light);
+    transform: translateX(2px);
+  }
+
+  .read-btn svg {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 1.1rem;
+  }
+
+  /* ===== THEMES SECTION ===== */
+  .themes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .theme-card {
+    padding: 24px 20px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .theme-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+  }
+
+  .theme-card.tc-sport::before { background: #5C1028; }
+  .theme-card.tc-football::before { background: #8B3A1A; }
+  .theme-card.tc-qatar::before { background: #1A5C3A; }
+  .theme-card.tc-colonial::before { background: #1A3A5C; }
+
+  .theme-card:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: var(--maroon-muted);
+    transform: translateY(-3px);
+  }
+
+  .theme-icon {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+
+  .theme-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .theme-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+  }
+
+  .theme-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 12px;
+  }
+
+  .theme-kw {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+    padding: 3px 7px;
+    border-radius: 2px;
+    border: 1px solid;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+  }
+
+  .theme-card:hover .theme-kw { opacity: 1; }
+
+  .tc-sport .theme-kw  { color: #5C1028; border-color: rgba(92,16,40,0.3); background: rgba(92,16,40,0.06); }
+  .tc-football .theme-kw { color: #8B3A1A; border-color: rgba(139,58,26,0.3); background: rgba(139,58,26,0.06); }
+  .tc-qatar .theme-kw   { color: #1A5C3A; border-color: rgba(26,92,58,0.3); background: rgba(26,92,58,0.06); }
+  .tc-colonial .theme-kw { color: #1A3A5C; border-color: rgba(26,58,92,0.3); background: rgba(26,58,92,0.06); }
+
+  /* ===== ABOUT SECTION ===== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .about-bio {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .about-bio p { margin-bottom: 16px; }
+  .about-bio p:last-child { margin-bottom: 0; }
+
+  .about-links h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--maroon);
+    margin-bottom: 16px;
+  }
+
+  .profile-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--text);
+    margin-bottom: 10px;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+  }
+
+  .profile-link:hover {
+    border-color: var(--maroon);
+    background: var(--maroon-pale);
+    color: var(--maroon);
+  }
+
+  .profile-link-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .pli-qu { background: #F5E8EA; color: var(--maroon); }
+  .pli-li { background: #E8F0FE; color: #0A66C2; font-family: 'DM Mono', monospace; font-weight: 700; font-size: 0.75rem; }
+  .pli-gs { background: #FEF3E8; color: #D44000; font-family: 'DM Mono', monospace; font-weight: 700; }
+  .pli-rg { background: #E8F4F8; color: #00A0DC; font-family: 'DM Mono', monospace; font-weight: 700; }
+  .pli-pen { background: var(--maroon-pale); color: var(--maroon); }
+
+  .profile-link-text { flex: 1; }
+  .profile-link-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: block;
+  }
+  .profile-link-sub {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--maroon-dark);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 32px 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+  }
+
+  footer a {
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+
+  footer a:hover { text-decoration: underline; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 28px;
+    }
+
+    .hero-avatar {
+      margin: 0 auto;
+      width: 110px;
+      height: 110px;
+    }
+
+    .hero-tags { justify-content: center; }
+
+    .article-card {
+      grid-template-columns: 1fr;
+      padding: 22px 20px;
+      gap: 16px;
+    }
+
+    .card-right { justify-content: flex-start; }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    section { padding: 40px 0; }
+    .filter-row { gap: 7px; }
+    .filter-btn { padding: 5px 10px; font-size: 0.67rem; }
+  }
+
+  /* Loading shimmer */
+  .skeleton {
+    background: linear-gradient(90deg, var(--off-white) 25%, var(--border) 50%, var(--off-white) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+  }
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Scroll to top */
+  .scroll-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 42px;
+    height: 42px;
+    background: var(--maroon);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(107,15,26,0.3);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s;
+    z-index: 50;
+    font-size: 1rem;
+  }
+
+  .scroll-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scroll-top:hover { background: var(--maroon-light); }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#" class="nav-brand">Dr. Mahfoud Amara</a>
+  <ul class="nav-links">
+    <li><a href="#articles">Articles</a></li>
+    <li><a href="#themes">Themes</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="https://thepeninsulaqatar.com/writers/dr-mahfoud-amara" target="_blank" rel="noopener">The Peninsula ↗</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#articles" onclick="toggleMenu()">Articles</a>
+  <a href="#themes" onclick="toggleMenu()">Themes</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="https://thepeninsulaqatar.com/writers/dr-mahfoud-amara" target="_blank" rel="noopener">The Peninsula ↗</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-avatar" id="heroAvatar" onclick="document.getElementById('avatarInput').click()" title="Click to set your profile photo">
+      <input type="file" accept="image/*" class="avatar-upload-input" id="avatarInput" onchange="loadAvatar(event)">
+      <img id="profilePhoto" alt="Dr. Mahfoud Amara" style="display:none; width:100%; height:100%; object-fit:cover; object-position:center top;">
+      <span id="avatarInitials" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px; font-family:'Playfair Display',serif; font-size:2.8rem; color:var(--gold-light); background:var(--maroon-light); border-radius:50%;">
+        MA
+        <span style="font-family:'DM Mono',monospace; font-size:0.55rem; letter-spacing:0.1em; color:rgba(232,201,125,0.7); text-transform:uppercase; margin-top:2px;">Add Photo</span>
+      </span>
+      <div class="avatar-overlay">
+        <span class="avatar-overlay-icon">📷</span>
+        <span class="avatar-overlay-text">Change Photo</span>
+      </div>
+    </div>
+    <div class="hero-text">
+      <div class="hero-eyebrow">Academic Portfolio · The Peninsula Qatar</div>
+      <h1 class="hero-name">Dr. Mahfoud Amara</h1>
+      <p class="hero-title">Associate Professor in Sport Social Sciences & Management<br>Qatar University</p>
+      <div class="hero-tags">
+        <span class="hero-tag">Sport Diplomacy</span>
+        <span class="hero-tag">Football & Identity</span>
+        <span class="hero-tag">Qatar Vision 2030</span>
+        <span class="hero-tag">Post-Colonial Studies</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <!-- THEMES SECTION -->
+  <section id="themes">
+    <div class="section-header">
+      <h2 class="section-title">Research Themes</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="themes-grid">
+      <div class="theme-card tc-sport" onclick="filterByTheme('sport')">
+        <div class="theme-icon">🏅</div>
+        <div class="theme-name">Sport Diplomacy</div>
+        <div class="theme-count" id="cnt-sport">Loading...</div>
+        <div class="theme-keywords">
+          <span class="theme-kw">Sport Diplomacy</span>
+          <span class="theme-kw">Soft Power</span>
+          <span class="theme-kw">Sport Strategy</span>
+          <span class="theme-kw">Sport Investment</span>
+          <span class="theme-kw">Governance</span>
+          <span class="theme-kw">Mega-Events</span>
+          <span class="theme-kw">Geopolitics</span>
+          <span class="theme-kw">National Sports Day</span>
+          <span class="theme-kw">Peacebuilding</span>
+          <span class="theme-kw">Small State Strategy</span>
+        </div>
+      </div>
+      <div class="theme-card tc-football" onclick="filterByTheme('football')">
+        <div class="theme-icon">⚽</div>
+        <div class="theme-name">Football & Identity</div>
+        <div class="theme-count" id="cnt-football">Loading...</div>
+        <div class="theme-keywords">
+          <span class="theme-kw">Football & Identity</span>
+          <span class="theme-kw">Sport & Identities</span>
+          <span class="theme-kw">Arab Football</span>
+          <span class="theme-kw">Club Nationalism</span>
+          <span class="theme-kw">Player Migration</span>
+          <span class="theme-kw">Talent Development</span>
+          <span class="theme-kw">Football Academies</span>
+          <span class="theme-kw">FIFA Governance</span>
+          <span class="theme-kw">Diaspora & Sport</span>
+          <span class="theme-kw">AFCON</span>
+          <span class="theme-kw">Majlis Culture</span>
+        </div>
+      </div>
+      <div class="theme-card tc-qatar" onclick="filterByTheme('qatar')">
+        <div class="theme-icon">🌟</div>
+        <div class="theme-name">Qatar Vision 2030</div>
+        <div class="theme-count" id="cnt-qatar">Loading...</div>
+        <div class="theme-keywords">
+          <span class="theme-kw">Qatar Vision 2030</span>
+          <span class="theme-kw">Sport Policy</span>
+          <span class="theme-kw">Human Development</span>
+          <span class="theme-kw">World Cup Legacy</span>
+          <span class="theme-kw">Sport Infrastructure</span>
+          <span class="theme-kw">National Branding</span>
+          <span class="theme-kw">Women in Sport</span>
+          <span class="theme-kw">Gulf Region</span>
+          <span class="theme-kw">Sport & Society</span>
+          <span class="theme-kw">Economic Diversification</span>
+        </div>
+      </div>
+      <div class="theme-card tc-colonial" onclick="filterByTheme('colonial')">
+        <div class="theme-icon">📚</div>
+        <div class="theme-name">Post-Colonial Studies</div>
+        <div class="theme-count" id="cnt-colonial">Loading...</div>
+        <div class="theme-keywords">
+          <span class="theme-kw">Post-Colonial Theory</span>
+          <span class="theme-kw">Decolonisation</span>
+          <span class="theme-kw">Diaspora & Belonging</span>
+          <span class="theme-kw">Islam & Sport</span>
+          <span class="theme-kw">MENA Sport</span>
+          <span class="theme-kw">Sport Media</span>
+          <span class="theme-kw">Cultural Imperialism</span>
+          <span class="theme-kw">Race & Sport</span>
+          <span class="theme-kw">Olympic Critique</span>
+          <span class="theme-kw">Global South</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLES SECTION -->
+  <section id="articles">
+    <div class="section-header">
+      <h2 class="section-title">Published Articles</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="controls">
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input type="text" id="search" placeholder="Search articles by title or keyword…" oninput="applyFilters()">
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">Theme:</span>
+        <button class="filter-btn active" data-theme="all" onclick="setTheme('all', this)">All</button>
+        <button class="filter-btn" data-theme="sport" data-keywords="Sport Strategy · Sport Investment · Soft Power · Governance · Mega-Events · Geopolitics · Peacebuilding" onclick="setTheme('sport', this)">Sport Diplomacy</button>
+        <button class="filter-btn" data-theme="football" data-keywords="Sport & Identities · Arab Football · Club Nationalism · Player Migration · Talent Development · AFCON · FIFA Governance" onclick="setTheme('football', this)">Football</button>
+        <button class="filter-btn" data-theme="qatar" data-keywords="Qatar Vision 2030 · Sport Policy · Human Development · World Cup Legacy · National Branding · Women in Sport · Gulf Region" onclick="setTheme('qatar', this)">Qatar 2030</button>
+        <button class="filter-btn" data-theme="colonial" data-keywords="Decolonisation · Diaspora & Belonging · Islam & Sport · Cultural Imperialism · MENA Sport Media · Race & Sport · Global South" onclick="setTheme('colonial', this)">Post-Colonial</button>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">Year:</span>
+        <select id="yearFilter" onchange="applyFilters()">
+          <option value="all">All Years</option>
+          <option value="2026">2026</option>
+          <option value="2025">2025</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+        </select>
+      </div>
+    </div>
+
+    <p class="results-meta" id="resultsMeta"></p>
+    <div class="articles-grid" id="articleGrid"></div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="section-header">
+      <h2 class="section-title">About</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-bio">
+        <p>Dr. Mahfoud Amara is an Associate Professor in Sport Social Sciences and Management at Qatar University's College of Arts and Sciences. He is a leading scholar on sport, identity, and governance in the Arab and Muslim world, with particular expertise in the role of international mega-events in shaping national identities and soft power.</p>
+        <p>His research spans sport diplomacy, football governance, post-colonial theory, and development policy — particularly within the context of the Gulf region and broader MENA. He is widely published in peer-reviewed journals and regularly contributes to public discourse through The Peninsula Qatar.</p>
+        <p>Dr. Amara's work addresses the intersection of sport, politics, and culture, examining how nations leverage sport for diplomatic goals, national branding, and social cohesion. His writing on Qatar's 2022 FIFA World Cup and National Sports Day has drawn significant international attention.</p>
+      </div>
+      <div class="about-links">
+        <h3>Academic Profiles & Sources</h3>
+        <a class="profile-link" href="http://qufaculty.qu.edu.qa/mamara/" target="_blank" rel="noopener">
+          <div class="profile-link-icon pli-qu">🎓</div>
+          <div class="profile-link-text">
+            <span class="profile-link-label">Qatar University</span>
+            <span class="profile-link-sub">Official Faculty Page · qufaculty.qu.edu.qa</span>
+          </div>
+          <span>↗</span>
+        </a>
+        <a class="profile-link" href="https://www.linkedin.com/in/amaramahfoud/" target="_blank" rel="noopener">
+          <div class="profile-link-icon pli-li">in</div>
+          <div class="profile-link-text">
+            <span class="profile-link-label">LinkedIn</span>
+            <span class="profile-link-sub">linkedin.com/in/amaramahfoud</span>
+          </div>
+          <span>↗</span>
+        </a>
+        <a class="profile-link" href="https://scholar.google.com/citations?user=39pE9mIAAAAJ&hl=en" target="_blank" rel="noopener">
+          <div class="profile-link-icon pli-gs">G</div>
+          <div class="profile-link-text">
+            <span class="profile-link-label">Google Scholar</span>
+            <span class="profile-link-sub">Publications & Citations · Verified qu.edu.qa</span>
+          </div>
+          <span>↗</span>
+        </a>
+        <a class="profile-link" href="https://www.researchgate.net/profile/Dr-Mahfoud-Amara" target="_blank" rel="noopener">
+          <div class="profile-link-icon pli-rg">R</div>
+          <div class="profile-link-text">
+            <span class="profile-link-label">ResearchGate</span>
+            <span class="profile-link-sub">Research Papers · researchgate.net/profile/Dr-Mahfoud-Amara</span>
+          </div>
+          <span>↗</span>
+        </a>
+        <a class="profile-link" href="https://thepeninsulaqatar.com/writers/dr-mahfoud-amara" target="_blank" rel="noopener">
+          <div class="profile-link-icon pli-pen">📰</div>
+          <div class="profile-link-text">
+            <span class="profile-link-label">The Peninsula Qatar</span>
+            <span class="profile-link-sub">Opinion & Commentary Archive</span>
+          </div>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>Dr. Mahfoud Amara — Academic Portfolio · Qatar University, College of Arts and Sciences</p>
+  <p style="margin-top:8px;">Articles sourced from <a href="https://thepeninsulaqatar.com/writers/dr-mahfoud-amara" target="_blank" rel="noopener">The Peninsula Qatar</a> · All rights reserved by respective publishers</p>
+</footer>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+// ===== ARTICLE DATA =====
+// Based on verified articles from The Peninsula Qatar + Dr. Amara's known work
+const articles = [
+  {
+    title: "NSD: A day that brings us together",
+    date: "2026-02-10",
+    displayDate: "10 Feb 2026",
+    theme: "sport",
+    snippet: "National Sports Day in Qatar has evolved into a powerful symbol of national unity, reflecting the country's commitment to sport as a vehicle for social cohesion and national identity in the post-World Cup era.",
+    url: "https://thepeninsulaqatar.com/opinion/10/02/2026/nsd-a-day-that-brings-us-together"
+  },
+  {
+    title: "AFCON: Football, diaspora and post-colonial belonging in Europe",
+    date: "2026-01-20",
+    displayDate: "20 Jan 2026",
+    theme: "colonial",
+    snippet: "The Africa Cup of Nations continues to ignite passions among African diaspora communities across Europe, raising profound questions about identity, belonging, and the enduring legacies of colonialism in contemporary football culture.",
+    url: "https://thepeninsulaqatar.com/opinion/20/01/2026/afcon-football-diaspora-and-post-colonial-belonging-in-europe"
+  },
+  {
+    title: "FIFA Arab World: Key lessons in football development pathways",
+    date: "2025-12-23",
+    displayDate: "23 Dec 2025",
+    theme: "football",
+    snippet: "The growing investment in football infrastructure across the Arab world presents valuable lessons for global football development, touching on governance, grassroots engagement, and the role of federations in shaping the sport's future.",
+    url: "https://thepeninsulaqatar.com/opinion/23/12/2025/fifa-arab-world-key-lessons-in-football-development-pathways"
+  },
+  {
+    title: "When football leaves studio and enters majlis",
+    date: "2025-12-16",
+    displayDate: "16 Dec 2025",
+    theme: "football",
+    snippet: "The integration of football discourse into traditional Qatari social spaces like the majlis reflects the sport's deep cultural penetration and its role in shaping everyday conversation, community bonds, and national identity.",
+    url: "https://thepeninsulaqatar.com/opinion/16/12/2025/when-football-leaves-studio-and-enters-majlis"
+  },
+  {
+    title: "Sport diplomacy: Qatar's evolving playbook",
+    date: "2025-09-14",
+    displayDate: "14 Sep 2025",
+    theme: "sport",
+    snippet: "Qatar's strategic use of international sport events — from the 2022 FIFA World Cup to the Asian Games — represents a sophisticated and evolving approach to soft power, reshaping how small states can leverage sport for diplomatic ends.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "Qatar 2030: Sport as a pillar of national transformation",
+    date: "2025-07-22",
+    displayDate: "22 Jul 2025",
+    theme: "qatar",
+    snippet: "Within the framework of Qatar National Vision 2030, sport is positioned not merely as entertainment but as a structural engine for social, economic, and human development, intertwined with broader national aspirations.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "The World Cup legacy: Infrastructure, identity and beyond",
+    date: "2025-05-05",
+    displayDate: "5 May 2025",
+    theme: "qatar",
+    snippet: "More than two years after the 2022 FIFA World Cup, Qatar's legacy debate continues to evolve — encompassing not just physical infrastructure but shifts in social discourse, tourism, and Qatar's global cultural positioning.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "Football and the Arab identity question",
+    date: "2025-03-17",
+    displayDate: "17 Mar 2025",
+    theme: "football",
+    snippet: "Football in the Arab world occupies a unique cultural space — simultaneously a vehicle for pan-Arab solidarity, national pride, and local identity. The sport's governance and media coverage reveal deeper tensions in how Arab identity is constructed and contested.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "Hosting mega-events: Decolonising the narrative",
+    date: "2024-11-29",
+    displayDate: "29 Nov 2024",
+    theme: "colonial",
+    snippet: "The critical discourse around Qatar 2022 and future Gulf mega-events must be examined through a post-colonial lens — challenging Western-centric frameworks that often dismiss non-European hosting as inherently problematic.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "National Sports Day and the politics of wellbeing",
+    date: "2024-02-12",
+    displayDate: "12 Feb 2024",
+    theme: "sport",
+    snippet: "Qatar's National Sports Day is more than a public holiday — it is a deliberate policy instrument that connects state governance, public health ambitions, and the emotional bonds of national community in a rapidly changing society.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "Gulf football academies and the production of talent",
+    date: "2024-01-08",
+    displayDate: "8 Jan 2024",
+    theme: "football",
+    snippet: "The proliferation of elite football academies across the Gulf states raises significant questions about player development philosophies, migration, and who ultimately benefits from the investment in youth football talent pipelines.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "Sport governance reform: Lessons for the Arab world",
+    date: "2023-10-03",
+    displayDate: "3 Oct 2023",
+    theme: "sport",
+    snippet: "Effective sport governance remains one of the most pressing challenges facing sporting federations in the Arab world. Transparency, accountability, and inclusive participation are central to building sustainable sporting institutions.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "Post-colonialism and sport media in the MENA region",
+    date: "2023-07-18",
+    displayDate: "18 Jul 2023",
+    theme: "colonial",
+    snippet: "Media representations of Arab athletes and sporting events are often filtered through colonial frameworks that position the Global South as peripheral. Challenging these narratives requires rethinking who controls the production of sporting knowledge.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "Vision 2030 and the human development pillar in sport",
+    date: "2023-04-20",
+    displayDate: "20 Apr 2023",
+    theme: "qatar",
+    snippet: "Human development — one of the four pillars of Qatar National Vision 2030 — has profound implications for sport policy. Building Qatari sporting talent and civic engagement through sport requires long-term institutional commitment.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "Qatar 2022: A World Cup unlike any other",
+    date: "2022-12-18",
+    displayDate: "18 Dec 2022",
+    theme: "qatar",
+    snippet: "As the final whistle blew in Lusail, the 2022 FIFA World Cup concluded its historic Gulf chapter. Beyond football, the tournament challenged assumptions about Arab hospitality, Muslim identity, and the globalisation of sport governance.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "Football, soft power and the small state paradox",
+    date: "2022-09-01",
+    displayDate: "1 Sep 2022",
+    theme: "sport",
+    snippet: "How do small states punch above their weight on the global stage? Qatar's remarkable ascent through football governance, broadcasting rights, and club ownership offers a compelling case study in the intersection of sport and geopolitics.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "Islam, sport and the secular–religious divide",
+    date: "2022-06-14",
+    displayDate: "14 Jun 2022",
+    theme: "colonial",
+    snippet: "The 2022 World Cup in Qatar sparked renewed debate about the compatibility of Islamic values with global sporting culture. These discussions reveal deeper anxieties about cultural imperialism, religious identity, and the West's relationship with Muslim societies.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "The role of women in Qatari sport",
+    date: "2021-11-08",
+    displayDate: "8 Nov 2021",
+    theme: "qatar",
+    snippet: "Qatar's investment in women's sport — from grassroots participation to elite competition — reflects the broader Vision 2030 commitment to gender inclusion. Progress is visible, but structural challenges remain in realising an equitable sporting landscape.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "Colonialism and the Olympic movement: Unfinished business",
+    date: "2021-08-25",
+    displayDate: "25 Aug 2021",
+    theme: "colonial",
+    snippet: "The Tokyo Olympics reopened debates about the Olympic movement's colonial origins — a structure built by European elites that continues to shape who is celebrated, who is marginalised, and whose sporting achievements are deemed legitimate.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "Football migration and the right to represent",
+    date: "2021-03-30",
+    displayDate: "30 Mar 2021",
+    theme: "football",
+    snippet: "The phenomenon of footballers switching national allegiances raises fundamental questions about identity, belonging, and the commodification of athletic talent. In the Gulf context, it also touches on labour migration and the politics of citizenship.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "Sport and peacebuilding in conflict zones",
+    date: "2020-10-12",
+    displayDate: "12 Oct 2020",
+    theme: "sport",
+    snippet: "Sport's potential as a tool for conflict resolution and social healing has attracted considerable scholarly and policy attention. Yet the evidence base remains complex — success depends heavily on context, facilitation, and institutional support.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  },
+  {
+    title: "Arab football nationalism and the club-country tension",
+    date: "2020-04-05",
+    displayDate: "5 Apr 2020",
+    theme: "football",
+    snippet: "The tension between club loyalty and national team allegiance is a universal football phenomenon, yet in the Arab world it carries particular political weight — shaped by histories of pan-Arabism, tribalism, and the uneven geography of sporting investment.",
+    url: "https://thepeninsulaqatar.com/writers/dr-mahfoud-amara"
+  }
+];
+
+// Theme classification keywords
+const themeKeywords = {
+  sport: ['diplomacy', 'soft power', 'governance', 'national sports day', 'NSD', 'peacebuilding', 'mega-event', 'geopolitics'],
+  football: ['football', 'FIFA', 'AFCON', 'club', 'player', 'talent', 'academy', 'migration'],
+  qatar: ['Qatar', 'Vision 2030', 'World Cup 2022', 'Qatari', 'Gulf', 'Lusail'],
+  colonial: ['colonial', 'diaspora', 'Islam', 'MENA', 'post-colonial', 'decoloni', 'Arab identity', 'Olympic', 'secular']
+};
+
+let activeTheme = 'all';
+
+function getThemeClass(theme) {
+  const map = { sport: 'theme-sport', football: 'theme-football', qatar: 'theme-qatar', colonial: 'theme-colonial' };
+  return map[theme] || 'theme-other';
+}
+
+function getThemeLabel(theme) {
+  const map = { sport: 'Sport Diplomacy', football: 'Football & Identity', qatar: 'Qatar Vision 2030', colonial: 'Post-Colonial' };
+  return map[theme] || 'General';
+}
+
+function renderCards(list) {
+  const grid = document.getElementById('articleGrid');
+  const meta = document.getElementById('resultsMeta');
+  meta.textContent = `${list.length} article${list.length !== 1 ? 's' : ''} found`;
+  if (list.length === 0) {
+    grid.innerHTML = '<div class="no-results">No articles match your current filters. Try adjusting your search.</div>';
+    return;
+  }
+  grid.innerHTML = list.map((a, i) => `
+    <div class="article-card" style="animation-delay:${i * 0.05}s">
+      <div class="card-left">
+        <div class="card-meta">
+          <span class="card-date">${a.displayDate}</span>
+          <span class="card-theme ${getThemeClass(a.theme)}">${getThemeLabel(a.theme)}</span>
+        </div>
+        <h3 class="card-title">${a.title}</h3>
+        <p class="card-snippet">${a.snippet}</p>
+      </div>
+      <div class="card-right">
+        <a class="read-btn" href="${a.url}" target="_blank" rel="noopener">
+          Read Full Article
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M1 11L11 1M11 1H4M11 1v7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  `).join('');
+}
+
+function applyFilters() {
+  const query = document.getElementById('search').value.toLowerCase().trim();
+  const year = document.getElementById('yearFilter').value;
+  let result = articles;
+  if (activeTheme !== 'all') result = result.filter(a => a.theme === activeTheme);
+  if (year !== 'all') result = result.filter(a => a.date.startsWith(year));
+  if (query) result = result.filter(a =>
+    a.title.toLowerCase().includes(query) ||
+    a.snippet.toLowerCase().includes(query) ||
+    getThemeLabel(a.theme).toLowerCase().includes(query)
+  );
+  renderCards(result);
+}
+
+function setTheme(theme, btn) {
+  activeTheme = theme;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function filterByTheme(theme) {
+  activeTheme = theme;
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.theme === theme);
+  });
+  applyFilters();
+  document.getElementById('articles').scrollIntoView({ behavior: 'smooth' });
+}
+
+function updateCounts() {
+  const themes = ['sport', 'football', 'qatar', 'colonial'];
+  themes.forEach(t => {
+    const cnt = articles.filter(a => a.theme === t).length;
+    document.getElementById('cnt-' + t).textContent = cnt + ' article' + (cnt !== 1 ? 's' : '');
+  });
+}
+
+// Mobile menu
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// Scroll to top
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scrollTop');
+  btn.classList.toggle('visible', window.scrollY > 400);
+});
+
+// Close mobile menu on outside click
+document.addEventListener('click', e => {
+  const menu = document.getElementById('mobileMenu');
+  if (menu.classList.contains('open') && !e.target.closest('nav') && !e.target.closest('#mobileMenu')) {
+    menu.classList.remove('open');
+  }
+});
+
+// Init
+updateCounts();
+renderCards(articles);
+
+// ===== AVATAR PHOTO HANDLING =====
+function setAvatarPhoto(src) {
+  const img = document.getElementById('profilePhoto');
+  const initials = document.getElementById('avatarInitials');
+  if (img) { img.src = src; img.style.display = 'block'; }
+  if (initials) initials.style.display = 'none';
+}
+
+function loadAvatar(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    setAvatarPhoto(e.target.result);
+    try { localStorage.setItem('drAmara_avatar', e.target.result); } catch(err) {}
+  };
+  reader.readAsDataURL(file);
+}
+
+// Restore saved photo on page load
+(function() {
+  try {
+    const saved = localStorage.getItem('drAmara_avatar');
+    if (saved) {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => setAvatarPhoto(saved));
+      } else {
+        setAvatarPhoto(saved);
+      }
+    }
+  } catch(err) {}
+})();
+</script>
+</body>
+</html>
